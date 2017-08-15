@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>方块变化</title>
+<style>
+*{
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+}
+#Div{
+	width: 360px;
+	height: 360px;
+	background-image: url(images/127.jpg);
+	background-size: 360px 360px;
+	margin-top: 10px;
+	margin-left: 10px;
+	position: relative;
+}
+#Div div{
+	width: 36px;
+	height: 36px;
+	background-image: url(images/1.png);
+	position: absolute;
+	transition: 0.5s;
+}
+</style>
+<script>
+window.onload=function(){
+	// // i   left   top
+	// 	0    0    0
+	// 	1    36   0
+	// 	2    36*2 0
+	// 	3    36*3 0
+	// 	..   ..   ..
+	// 	9    36*9  0
+	// 	10   0    36
+	// 	11   36   36
+	// 	12   36*2  36
+	// 	...   ..   ..
+	// 	19    36*19  36
+	//  20    0     36*2    
+	// 0%10==0
+	// 1%10==1
+	// 2%10==2
+	// 3%10==3
+	// .....
+	// 10%10==0
+	// 11%10==1
+	//  .......
+	// 20%10==0
+	var Div=document.getElementById('Div');
+	var divs=Div.getElementsByTagName('div');
+	var str="";
+	var l=0;
+	var t=0;
+	for(var i=0;i<100;i++){
+			l=36*(i%10);
+			t=Math.floor(i/10)*36;
+			str+='<div style="left:'+l+'px;top:'+t+'px"></div>';
+	}
+	Div.innerHTML=str;
+	for(var i=0;i<100;i++){
+		divs[i].onmouseover=function(){
+		this.style.transform="scale(0)";
+		this.style.opcity=0;
+
+	}
+	}
+}
+</script>
+</head>
+<body>
+<div id="Div">
+<div></div>
+</div>
+</body>
+</html>

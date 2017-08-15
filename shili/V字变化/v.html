@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>模拟手机聊天</title>
+<style>
+*{
+	margin-left:5px;
+	padding: 0px;
+}
+#Div{
+	width: 500px;
+	height: 500px;
+	position: relative;
+}
+.box{
+	width: 100px;
+	height: 100px;
+	background-color: pink;
+	margin:0;
+	text-align: center;
+	font-size: 50px;
+	line-height: 100px;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+</style>
+<script>
+window.onload=function(){
+	//获取元素
+	var btn=document.getElementById('btn');
+	var Div=document.getElementById('Div');
+	var l=0;
+	var t=0;
+	var num=0;
+	var str='';
+	btn.onclick=function(){
+
+		//向上
+		if(num==0){
+		for(var i=0;i<5;i++){
+			l=i*100;
+			if(i<=2){
+				t=i*100;
+			}else{
+				t=400-i*100;
+			}
+		str+='<div class="box" style="left: '+l+'px;top:'+t+'px;">'+i+'</div>';
+	}
+}
+	//向右
+		// i  left   top
+		// 0  400    0
+		// 1  300    100
+		// 2  200    200
+		// 3  300    300
+		// 4  400    400
+		if(num==1){
+		for(var i=0;i<5;i++){
+			t=i*100;
+			if(i<=2){
+				l=400-i*100;
+			}else{
+				l=i*100;
+			}
+		str+='<div class="box" style="left: '+l+'px;top:'+t+'px;">'+i+'</div>';
+	}
+
+}
+	//向下
+		// i  left   top
+		// 0  0      400
+		// 1  100    300
+		// 2  200    200
+		// 3  300    300
+		// 4  400    400
+		if(num==2){
+		for(var i=0;i<5;i++){
+			l=i*100;
+			if(i<=2){
+				t=400-i*100;
+			}else{
+				t=i*100;
+			}
+		str+='<div class="box" style="left: '+l+'px;top:'+t+'px;">'+i+'</div>';
+	}
+
+}
+	//向左
+		// i  left   top
+		// 0  0      0
+		// 1  100    100
+		// 2  200    200
+		// 3  100    300
+		// 4   0     400
+		if(num==3){
+		for(var i=0;i<5;i++){
+			t=i*100;
+			if(i<=2){
+				l=i*100;
+			}else{
+				l=400-i*100;
+			}
+		str+='<div class="box" style="left: '+l+'px;top:'+t+'px;">'+i+'</div>';
+	}
+}
+	Div.innerHTML=str;
+	str="";
+	num++;
+	if(num==4){
+		num=0;
+	}
+
+
+
+
+
+
+
+
+}
+};
+</script>
+</head>
+<body>
+<input type="button" value="生成"/ id="btn">
+<div id="Div">
+<!-- <div class="box">0</div>
+<div class="box" style="left: 100px;top: 100px;">1</div>
+<div class="box" style="left: 200px;top: 200px;">2</div>
+<div class="box" style="left: 300px;top: 100px;">3</div>
+<div class="box" style="left: 400px;top: 0px;">4</div> -->
+
+</div>
+
+
+</div>
+</body>
+</html>

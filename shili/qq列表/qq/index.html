@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>qq列表</title>
+<style>
+*{
+	margin:0px;
+	padding: 0px;
+}
+#Div{
+	width: 200px;
+	height: 320px;
+	margin-top: 20px;
+	margin-left: 30px;
+	border:1px solid black;
+}
+h3{
+	cursor: pointer;
+}
+ul,li{
+	list-style-type: none;
+	margin-left:5px;
+	padding:0px;
+}
+ul{
+	display: none;
+}
+.active{
+	background-color: blue;
+}
+</style>
+<script>
+window.onload=function(){
+	var h3=document.getElementsByTagName('h3');
+	var ul=document.getElementsByTagName('ul');
+	
+	for(var i=0;i<h3.length;i++){
+		h3[i].onoff=true;
+		h3[i].index=i;
+		h3[i].onclick=function(){
+			for(var i=0;i<h3.length;i++){
+				if(i!=this.index){
+				h3[i].onoff=true;
+				ul[i].style.display='none';
+				this.className="";}
+			}
+			if(this.onoff){
+				this.className="active";
+				ul[this.index].style.display='block';
+			}else{
+			this.className="";
+			ul[this.index].style.display='none';
+		}
+			this.onoff=!this.onoff;
+		}
+	}
+
+};
+</script>
+</head>
+<body>
+<div id="Div">
+<div>
+<h3>我的好友</h3>
+<ul>
+<li>张三</li>
+<li>张三</li>
+<li>张三</li>
+<li>张三</li>
+</ul>
+</div>
+<div>
+<h3>企业好友</h3>
+<ul>
+<li>李四</li>
+<li>李四</li>
+<li>李四</li>
+<li>李四</li>
+<li>李四</li>
+</ul>
+</div>
+<div>
+<h3>黑名单</h3>
+<ul>
+<li>张小三</li>
+<li>李小四</li>
+</ul>
+</div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>图片切换</title>
+<style>
+*{
+	margin: 0px auto;
+	padding: 0px;
+	font-size: 12px;
+}
+body{
+	text-align: center;
+}
+#Div{
+	width: 500px;
+	height: 500px;
+	margin-top: 20px;
+}
+#p1{
+	line-height: 30px;
+}
+#im{
+	position: relative;
+}
+#p2{
+	position: absolute;
+	bottom: 4px;
+	left: 154px;
+	background-color: rgb(240,240,240);
+	width: 192px;
+	height: 20px;
+	line-height: 20px;
+}
+#p3{
+	line-height: 30px;
+}
+</style>
+<script>
+window.onload=function(){
+	//点击顺序播放按钮，显示顺序播放
+	//点击循环播放按钮，显示循环播放
+	var order=document.getElementById('order');
+	var loop=document.getElementById('loop');
+	var p1=document.getElementById('p1');
+	var p2=document.getElementById('p2');
+	var p3=document.getElementById('p3');
+	var im2=document.getElementById('im2');
+	var next=document.getElementById('next');
+	var prev=document.getElementById('prev');
+	var arr=['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images/5.jpg'];
+	var text=['这是第一张图片','这是第二张图片','这是第三张图片','这是第四张图片','这是第五张图片']
+	var len=arr.length;
+	var i=0;
+	//如果true，顺序播放
+	var onoff=true;
+	order.onclick=function(){
+		onoff=true;
+		p1.innerHTML="图片顺序播放";}
+	loop.onclick=function(){
+		onoff=false;
+		p1.innerHTML="图片循环播放";    
+}
+next.onclick=function(){
+		i++;
+		if(i>len-1){
+			if(onoff){
+				//顺序
+			i=len-1;
+			 alert('这是最后一张啦！');}
+			 else{//循环
+			 	i=0
+			 }
+		}
+		change();
+	}
+	prev.onclick=function(){
+		i--;
+		if(i<0){
+			if(onoff){
+			i=0;
+			alert('这是第一张啦！');}
+			else{
+				i=len-1;
+			}
+		}
+		change();
+	}
+	function change(){
+		im2.src=arr[i];
+		p2.innerHTML=text[i];
+		p3.innerHTML=i+1+'/'+len;
+	}
+
+}
+</script>
+</head>
+<body>
+<div id="Div">
+<div id="div1">
+<input type="button" value="顺序播放" id="order"/>
+<input type="button" value="循环播放" id="loop"/>
+</div>
+<p id="p1">图片顺序播放</p>
+<div id="im">
+<img src="images/1.jpg"/ id="im2">
+<p id="p2">这是第一张图片</p>
+</div>
+<p id="p3">1/5</p>
+<div id="div2">
+<input type="button" value="上一张" id="prev"/>
+<input type="button" value="下一张" id="next"/>
+</div>
+</div>
+</body>
+</html>

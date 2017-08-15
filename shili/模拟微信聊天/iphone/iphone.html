@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>模拟手机聊天</title>
+<style>
+*{
+	margin:0px;
+	padding: 0px;
+}
+#Div{
+	margin: 0 auto;
+	width: 270px;
+	height: 480px;
+	background: url(images/timg.png) no-repeat;
+	position: relative;
+}
+#div{
+	width: 270px;
+	height: 480px;
+	position: absolute;
+	top: 50px;
+	overflow-y: hidden;
+}
+#ul1{
+	width: 270px;
+	height: 390px;
+	clear: both;
+	overflow: auto;
+	overflow-x: hidden;
+}
+#bottom{
+	width:268px;
+	height: 50px;
+}
+#img{
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+	vertical-align: middle;
+}
+#text{
+	width: 180px;
+	height: 20px;
+	margin-top: 10px;
+}
+#ul1 li{
+	list-style-type: none;
+	margin-right: 20px;
+	width:268px;
+}
+.fl img{
+	float: left;
+	width: 30px;
+	height: 30px;
+	margin-top: 10px;
+}
+.fl p{
+	float: left; 
+	margin-left:5px;
+	max-width: 150px;
+	word-wrap: break-word;
+	margin-top: 10px;
+}
+.fr img{
+	float: right;
+	width: 30px;
+	height: 30px;
+	margin-top: 10px;
+}
+.fr p{
+	float: right; 
+	margin-right:5px;
+	max-width: 150px;
+	word-wrap: break-word;
+	margin-top: 10px;
+}
+p{
+	line-height: 25px;
+	background-color: #458B00;
+	border-radius: 5px;
+	padding:0 5px;
+
+}
+.clear{
+	clear: both;
+}
+</style>
+<script>
+window.onload=function(){
+	//获取元素
+	var img=document.getElementById('img');
+	var text=document.getElementById('text');
+	var box=document.getElementById('box');
+	var button=document.getElementById('button');
+	var ul1=document.getElementById('ul1');
+	//点击头像更换一张图片
+	var onoff=true;
+	img.onclick=function(){
+		if (onoff) {
+			img.src='images/2.png';
+			
+		}
+		else{
+			img.src='images/1.png';
+		
+		};
+		onoff=!onoff;
+	};
+
+	//点击事件，点击发送，文本框的内容可以显示在div1中
+	button.onclick=function(){
+		if(text.value==""){
+			alert('不能为空！');
+		}
+		else
+		if(onoff){
+		ul1.innerHTML+='<li class="fl clear"><img src="images/1.png"><p>'+text.value+'</p></li>';
+		
+	}else{
+		ul1.innerHTML+='<li class="fr clear"><img src="images/2.png"><p>'+text.value+'</p></li>';
+		
+	};
+	text.value="";
+	};
+	
+
+};
+</script>
+</head>
+<body>
+<div id="Div">
+<div id="div">
+
+<ul id="ul1">
+
+</ul>
+
+<div id="bottom">
+<img src="images/1.png" id="img">
+<input type="text" id="text" >
+<input type="button" value="发送" id="button">
+
+
+</div>
+</div>
+
+
+</div>
+</body>
+</html>
