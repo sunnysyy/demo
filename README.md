@@ -3,7 +3,7 @@
 
 实例
 
-- [qq列表](https://github.com/sunnysyy/demo/shili/qq列表/qq/index.html)
+- [qq列表](http://demo.github.io/shili/qq列表/qq/index.html)
 
 - [V字变化](https://github.com/sunnysyy/demo/shili/V字变化/v.html)
 
