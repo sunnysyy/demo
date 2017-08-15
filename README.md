@@ -3,9 +3,9 @@
 
 实例
 
-1.<a href=" demo/shili/V字变化/v.html">qq列表</a>
+1.qq列表  demo/shili/qq列表/qq/index.html 
 
-2.V字变化
+2.V字变化  demo/shili/V字变化/v.html 
 
 3.多组图片切换
 
